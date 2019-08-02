@@ -10,12 +10,15 @@ public class TestScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.touches.Length > 0)
-        {
-            Touch touch = Input.touches[0];
-            text.text = $"position: {touch.position} + phase: {touch.phase}";
-        }
+        
     }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("clicked");
+        text.text = "clicked"+ Time.deltaTime;
+    }
+
 
 
 

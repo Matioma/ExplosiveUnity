@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     private Camera camera;
 
     private static bool paused;
+    public Text text;
     void Start()
     {
         camera = Camera.main;
@@ -37,9 +38,24 @@ public class PlayerInput : MonoBehaviour
     //Perfom Actions On click
     void ScreenClicked(Vector3 mousePos)
     {
-        //Create Explosion effect
-        Vector3 worldClickPosition = camera.ScreenToWorldPoint(mousePos);
-        GameObject explode =Instantiate(explosion, new Vector3(worldClickPosition.x, worldClickPosition.y, 0), Quaternion.identity);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector2 pos2D = new Vector2(pos.x, pos.y);
+
+
+        RaycastHit2D hit = Physics2D.Raycast(pos2D, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            text.text = $"{hit.collider.gameObject.name}";
+        }
+        else {
+
+        }
+
+
+        Vector3 mousePosition = camera.ScreenToWorldPoint(mousePos);
+        GameObject explode = Instantiate(explosion, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
         Destroy(explode, explode.GetComponent<Explosion>().timeToDestroy);
 
         Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
