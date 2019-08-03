@@ -10,10 +10,6 @@ public class Explosion : MonoBehaviour
     public void AddForceToAllObject()
     {
         Collider2D[] objectsInArea = Physics2D.OverlapCircleAll(transform.position, Radius);
-
-        Debug.Log(objectsInArea.Length);
-        // Debug.Log(Physics2D.OverlapCircleAll(transform.position, Radius, LayerMask.NameToLayer("ForceAffected")).Length);
-        //Debug.Log("GG");
         foreach (Collider2D collider in objectsInArea)
         {
             if (collider.gameObject.layer == 8)
@@ -22,11 +18,4 @@ public class Explosion : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("GG");
-    }
-
-
 }

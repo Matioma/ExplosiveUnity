@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 0.5
-  Radius: 10000
-  explosionForce: 500
+  Radius: 5
+  explosionForce: 800
 --- !u!58 &5781972365009467988
 CircleCollider2D:
   m_ObjectHideFlags: 0
