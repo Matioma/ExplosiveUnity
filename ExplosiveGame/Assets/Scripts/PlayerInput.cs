@@ -35,7 +35,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    //Perfom Actions On click
+    /// <summary>
+    /// Performs actions based on the click position
+    /// </summary>
+    /// <param name="mousePos"></param>
     void ScreenClicked(Vector3 mousePos)
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -46,20 +49,34 @@ public class PlayerInput : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
-            text.text = $"{hit.collider.gameObject.name}";
+            if (hit.collider.gameObject.CompareTag("DeathZone"))
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                text.text = $"{hit.collider.gameObject.name}";
+            }
+           
         }
         else {
-
+            CreateExplosion(mousePos);
+    
         }
 
+    }
+    
 
-        Vector3 mousePosition = camera.ScreenToWorldPoint(mousePos);
+    /// <summary>
+    /// Creates the explosion object and adds force to this object
+    /// </summary>
+    /// <param name="_mousePosition"></param>
+    private void CreateExplosion(Vector3 _mousePosition)
+    {
+        Vector3 mousePosition = camera.ScreenToWorldPoint(_mousePosition);
         GameObject explode = Instantiate(explosion, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
         Destroy(explode, explode.GetComponent<Explosion>().timeToDestroy);
 
         Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

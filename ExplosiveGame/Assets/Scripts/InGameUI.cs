@@ -20,6 +20,9 @@ public class InGameUI : MonoBehaviour, IMenu
         loadScreenCanvas.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// toggles the Main menu between paused and playing
+    /// </summary>
     public void ToggleMainMenu()
     {
         gamePaused = !gamePaused;
@@ -27,11 +30,14 @@ public class InGameUI : MonoBehaviour, IMenu
         if (gamePaused) Time.timeScale = 0;
         else Time.timeScale = 1;
     }
+  
     public void ShowDefeatMenu()
     {
         defeatCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
+
+ 
     public void ShowLoadScreen()
     {
         loading = true;
@@ -39,7 +45,6 @@ public class InGameUI : MonoBehaviour, IMenu
     }
 
 
-    //
     public void RestartLevel()
     {
         ShowLoadScreen();
@@ -47,6 +52,12 @@ public class InGameUI : MonoBehaviour, IMenu
         Time.timeScale = 1;
     }
 
+
+    /// <summary>
+    /// Loads Asycroniously a level with a name
+    /// </summary>
+    /// <param name="Name">The name of the level that has to be loaded</param>
+    /// <returns></returns>
     private IEnumerator LoadLevel(string Name)
     {
         string CurrentSceneName = SceneManager.GetActiveScene().name;
