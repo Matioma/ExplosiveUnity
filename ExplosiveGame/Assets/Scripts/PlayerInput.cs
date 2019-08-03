@@ -53,8 +53,10 @@ public class PlayerInput : MonoBehaviour
             {
                 Debug.Log(hit.collider.gameObject.name);
                 text.text = $"{hit.collider.gameObject.name}";
+            }else if(hit.collider.gameObject.CompareTag("DestructableObject"))
+            {
+                hit.collider.gameObject.GetComponent<DestructableObject>()?.Destroyed();
             }
-           
         }
         else {
             CreateExplosion(mousePos);
