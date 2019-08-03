@@ -11,15 +11,19 @@ public class InGameUI : MonoBehaviour, IMenu
     public Canvas victoryCanvas;
     
     private bool loading = false;
-    public bool gamePaused =false;
+    [HideInInspector]public bool gamePaused =false;
 
+
+    public bool hideCanvasObject = true;
     // Start is called before the first frame update
     private void Awake()
     {
-        mainMenuCanvas.gameObject.SetActive(false);
-        defeatCanvas.gameObject.SetActive(false);
-        loadScreenCanvas.gameObject.SetActive(false);
-        victoryCanvas.gameObject.SetActive(false);
+        if (hideCanvasObject) {
+            mainMenuCanvas.gameObject.SetActive(false);
+            defeatCanvas.gameObject.SetActive(false);
+            loadScreenCanvas.gameObject.SetActive(false);
+            victoryCanvas.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -57,6 +61,11 @@ public class InGameUI : MonoBehaviour, IMenu
         Time.timeScale = 0;
     }
 
+    public void LoadLevelByName(string MainMenuName)
+    {
+        ShowLoadScreen();
+        StartCoroutine(LoadLevel(MainMenuName));
+    }
 
     /// <summary>
     /// Loads Asycroniously a level with a name
@@ -65,11 +74,10 @@ public class InGameUI : MonoBehaviour, IMenu
     /// <returns></returns>
     private IEnumerator LoadLevel(string Name)
     {
-        string CurrentSceneName = SceneManager.GetActiveScene().name;
+        //string CurrentSceneName = SceneManager.GetActiveScene().name;
         AsyncOperation async = SceneManager.LoadSceneAsync(Name);
 
         while (!async.isDone) {
-            Debug.Log(async.progress);
             yield return null;
         }
     }
