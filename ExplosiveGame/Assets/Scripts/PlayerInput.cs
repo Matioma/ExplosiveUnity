@@ -76,8 +76,12 @@ public class PlayerInput : MonoBehaviour
         GameObject explode = Instantiate(explosion, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
         Destroy(explode, explode.GetComponent<Explosion>().timeToDestroy);
 
-        Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
+        explode.GetComponent<Explosion>().AddForceToAllObject();
+        //Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
     }
+
+
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)

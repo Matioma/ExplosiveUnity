@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1918322236713935071}
   - component: {fileID: 1918322236713935008}
   - component: {fileID: 1918322236713935068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782642639600794084a03947b14f955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 400
-  explosion: {fileID: 3156732366757442292, guid: d3dac28e519327748bc1d6904a5b923f,
+  explosionForce: 600
+  explosion: {fileID: 4037506174040948438, guid: 875f65d0a03811a49958e263da98fd38,
     type: 3}
   player: {fileID: 1918322236713935010}
   DefeatMenu: {fileID: 0}
