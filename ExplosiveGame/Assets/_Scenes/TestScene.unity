@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 124004920}
   - component: {fileID: 124004919}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: NextLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,7 +485,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 124004920}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1771504060}
+        m_MethodName: LoadLevelByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelSelection
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &124004920
@@ -1371,7 +1382,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'MainMenu
+
+'
 --- !u!222 &885883851
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1812,7 +1825,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Next Level
+
+'
 --- !u!222 &1228982948
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1901,7 +1916,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1771504060}
-        m_MethodName: MainMenu
+        m_MethodName: LoadLevelByName
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1909,6 +1924,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1751646107}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2047,7 +2073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1472228344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10047,7 +10073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1751646108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10210,11 +10236,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c19f4d26835b8f42920381ec22d866b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasesUsed: []
   mainMenuCanvas: {fileID: 1751646111}
   defeatCanvas: {fileID: 237143494}
   loadScreenCanvas: {fileID: 1103220568}
   victoryCanvas: {fileID: 1472228347}
   gamePaused: 0
+  hideCanvasObject: 1
 --- !u!1 &1822130303
 GameObject:
   m_ObjectHideFlags: 0

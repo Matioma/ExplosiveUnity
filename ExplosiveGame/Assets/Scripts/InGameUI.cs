@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class InGameUI : MonoBehaviour, IMenu
 {
+    public Canvas[] canvasesUsed;
+
+
     public Canvas mainMenuCanvas;
     public Canvas defeatCanvas;
     public Canvas loadScreenCanvas;
@@ -60,6 +63,19 @@ public class InGameUI : MonoBehaviour, IMenu
         victoryCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
+
+    public void DisplayCanvas(Canvas canvasObject)
+    {
+        canvasObject.gameObject.SetActive(true);
+    }
+
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
+
+
 
     public void LoadLevelByName(string MainMenuName)
     {
