@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2604671036530405346}
   - component: {fileID: 5925859850603676950}
   - component: {fileID: 4531743581331529543}
+  - component: {fileID: 6574974586752727022}
   m_Layer: 0
   m_Name: VictoryPlate
   m_TagString: Untagged
@@ -106,3 +107,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &6574974586752727022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574974586752727021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48934e54d53a45449b9381ce7b9f6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

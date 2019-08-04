@@ -291,9 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cccaac02c11dda249a2b75cd0bcfe9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: TestScene
+  LevelName: Level1
   LevelTumb: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   CompletedLevelImages:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  LevelCompleted: 1
+  LevelCompleted: 0

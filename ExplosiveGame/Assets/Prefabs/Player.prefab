@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1918322236713935071}
   - component: {fileID: 1918322236713935008}
   - component: {fileID: 1918322236713935068}
+  - component: {fileID: 4042345950812185295}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -145,5 +146,15 @@ MonoBehaviour:
   explosion: {fileID: 4037506174040948438, guid: 875f65d0a03811a49958e263da98fd38,
     type: 3}
   player: {fileID: 1918322236713935010}
-  DefeatMenu: {fileID: 0}
-  text: {fileID: 0}
+--- !u!114 &4042345950812185295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918322236713935010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e0d69b17b68ec4992503dbcb059563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

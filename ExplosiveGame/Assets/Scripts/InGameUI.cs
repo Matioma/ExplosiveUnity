@@ -13,7 +13,7 @@ public class InGameUI : MonoBehaviour, IMenu
     public Canvas loadScreenCanvas;
     public Canvas victoryCanvas;
     
-    private bool loading = false;
+    //private bool loading = false;
     [HideInInspector]public bool gamePaused =false;
 
 
@@ -48,7 +48,7 @@ public class InGameUI : MonoBehaviour, IMenu
  
     public void ShowLoadScreen()
     {
-        loading = true;
+        //loading = true;
         loadScreenCanvas.gameObject.SetActive(true);
     }
 

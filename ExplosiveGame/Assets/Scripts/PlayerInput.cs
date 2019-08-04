@@ -10,11 +10,10 @@ public class PlayerInput : MonoBehaviour
     public GameObject explosion;
     public GameObject player;
 
-    public Canvas DefeatMenu;
+
     private Camera camera;
 
-    private static bool paused;
-    public Text text;
+    //private static bool paused;
     void Start()
     {
         camera = Camera.main;
@@ -52,7 +51,7 @@ public class PlayerInput : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("DeathZone"))
             {
                 Debug.Log(hit.collider.gameObject.name);
-                text.text = $"{hit.collider.gameObject.name}";
+
             }else if(hit.collider.gameObject.CompareTag("DestructableObject"))
             {
                 hit.collider.gameObject.GetComponent<DestructableObject>()?.Destroyed();
@@ -64,7 +63,6 @@ public class PlayerInput : MonoBehaviour
         }
 
     }
-    
 
     /// <summary>
     /// Creates the explosion object and adds force to this object
@@ -78,17 +76,5 @@ public class PlayerInput : MonoBehaviour
 
         explode.GetComponent<Explosion>().AddForceToAllObject();
         //Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
-    }
-
-
-
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("DeathZone")) {
-            InGameUI menuSystem = FindObjectOfType<InGameUI>();
-            menuSystem.ShowDefeatMenu();
-        }
     }
 }

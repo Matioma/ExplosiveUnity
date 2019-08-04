@@ -22,10 +22,10 @@ public class LevelButton : MonoBehaviour
         var CompleteImage = this.transform.GetChild(1).GetComponent<Image>();
         if (LevelCompleted)
         {
-            CompleteImage.sprite = CompletedLevelImages[1];
+            CompleteImage.sprite = CompletedLevelImages[0];
         }
         else {
-            CompleteImage.sprite = CompletedLevelImages[2];
+            CompleteImage.sprite = CompletedLevelImages[1];
         }
     }
     
