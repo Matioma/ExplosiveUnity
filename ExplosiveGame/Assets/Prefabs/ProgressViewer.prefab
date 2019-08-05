@@ -46,3 +46,7 @@ MonoBehaviour:
   playableLevels:
   - SceneName: Level1
     SceneWon: 0
+  - SceneName: Level2
+    SceneWon: 0
+  - SceneName: Level3
+    SceneWon: 0

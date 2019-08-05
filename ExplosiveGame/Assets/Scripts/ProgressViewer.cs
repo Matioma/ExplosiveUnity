@@ -19,10 +19,11 @@ public class ProgressViewer : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+        LoadData();
     }
     private void Start()
     {
-        LoadData();
+        //LoadData();
     }
     public void LevelPassed(string LevelName)
     {
@@ -35,6 +36,9 @@ public class ProgressViewer : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Serializes data about the game passed levels
+    /// </summary>
     public void SaveData()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -43,13 +47,16 @@ public class ProgressViewer : MonoBehaviour
         bf.Serialize(fileStream, playableLevels);
         fileStream.Close();
     }
+
+    /// <summary>
+    /// Deserializes data about the game passed levels
+    /// </summary>
     public void LoadData()
     {
         if (File.Exists(Application.persistentDataPath + "/ProgressViewer.dat")) {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/ProgressViewer.dat", FileMode.Open);
             playableLevels =(Level[])bf.Deserialize(file);
-            Debug.Log("Deserialised");
             file.Close();
         }
     }
@@ -58,7 +65,7 @@ public class ProgressViewer : MonoBehaviour
         foreach (Level level in playableLevels)
         {
             level.SceneWon = false;
-            Debug.Log("Should reset");
+            
         }
         File.Delete(Application.persistentDataPath + "/ProgressViewer.dat");
         
