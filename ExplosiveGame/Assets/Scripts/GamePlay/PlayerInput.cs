@@ -52,14 +52,20 @@ public class PlayerInput : MonoBehaviour
             {
                 Debug.Log(hit.collider.gameObject.name);
 
-            }else if(hit.collider.gameObject.CompareTag("DestructableObject"))
+            }
+            else if (hit.collider.gameObject.CompareTag("DestructableObject"))
             {
                 hit.collider.gameObject.GetComponent<DestructableObject>()?.Destroyed();
+            }
+            else if (hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Bagage"))
+            {
+            }
+            else {
+                CreateExplosion(mousePos);
             }
         }
         else {
             CreateExplosion(mousePos);
-    
         }
 
     }

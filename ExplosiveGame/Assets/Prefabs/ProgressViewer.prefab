@@ -50,3 +50,17 @@ MonoBehaviour:
     SceneWon: 0
   - SceneName: Level3
     SceneWon: 0
+  - SceneName: Level4
+    SceneWon: 0
+  - SceneName: Level5
+    SceneWon: 0
+  - SceneName: Level6
+    SceneWon: 0
+  - SceneName: Level7
+    SceneWon: 0
+  - SceneName: Level8
+    SceneWon: 0
+  - SceneName: Level9
+    SceneWon: 0
+  - SceneName: Level10
+    SceneWon: 0
