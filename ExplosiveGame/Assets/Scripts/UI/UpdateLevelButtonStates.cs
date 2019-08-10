@@ -9,11 +9,14 @@ public class UpdateLevelButtonStates : MonoBehaviour
     private void Awake()
     {
         //levelButtons = this.transform.GetComponentsInChildren<LevelButton>();
-
     }
     private void OnEnable()
     {
         UpdateStates();
+    }
+
+    private void Start()
+    {
     }
 
 

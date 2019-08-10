@@ -52,6 +52,7 @@ public class LevelButton : MonoBehaviour
 
     public void LevelButtonClicked()
     {
+
         InGameUI test = FindObjectOfType(typeof(InGameUI)) as InGameUI;
         test.LoadLevelByName(LevelName);
         Time.timeScale = 1;

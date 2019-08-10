@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -13,24 +14,43 @@ public class PlayerInput : MonoBehaviour
 
     private Camera camera;
 
-    //private static bool paused;
+
+    public int ShotLeft = 5;
+    public TextMeshProUGUI displayShotTextPro;
+
+    private static bool paused;
+
+    private void Awake()
+    {
+        displayShotTextPro.GetComponent<TextMeshProUGUI>().text = $"Shots Left: {ShotLeft}";
+    }
     void Start()
     {
         camera = Camera.main;
     }
     void Update()
     {
-        if (Input.touches.Length > 0)
-        {
-            Touch touch = Input.touches[0];
-            if (touch.phase == TouchPhase.Ended)
-            {
-                ScreenClicked(touch.position);
-            }
+        if (Time.timeScale == 0){
+            paused = true;
+        } else {
+            paused = false;
         }
-        if (Input.GetMouseButtonUp(0))
+
+        //if (Input.touches.Length > 0)
+        //{
+        //    Touch touch = Input.touches[0];
+        //    if (touch.phase == TouchPhase.Ended && ShotLeft>0 && !paused)
+        //    {
+        //        ScreenClicked(touch.position);
+        //    }
+        //}
+        if (Input.GetMouseButtonUp(0) && ShotLeft > 0 && !paused)
         {
             ScreenClicked(Input.mousePosition);
+        }
+        if(ShotLeft <= 0)
+        {
+            Invoke("lostOutOfAmmo", 3);
         }
     }
 
@@ -56,6 +76,7 @@ public class PlayerInput : MonoBehaviour
             else if (hit.collider.gameObject.CompareTag("DestructableObject"))
             {
                 hit.collider.gameObject.GetComponent<DestructableObject>()?.Destroyed();
+                CreateExplosion(mousePos);
             }
             else if (hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Bagage"))
             {
@@ -81,6 +102,18 @@ public class PlayerInput : MonoBehaviour
         Destroy(explode, explode.GetComponent<Explosion>().timeToDestroy);
 
         explode.GetComponent<Explosion>().AddForceToAllObject();
-        //Explosions.ExplosionEffect(this.gameObject, explode, explosionForce);
+        ReduceShotLeftCount();
+    }
+
+    public void ReduceShotLeftCount()
+    {
+        ShotLeft--;
+        displayShotTextPro.GetComponent<TextMeshProUGUI>().text = $"Shots Left: {ShotLeft}";
+    } 
+
+    public void lostOutOfAmmo()
+    {
+        InGameUI menuSystem = FindObjectOfType<InGameUI>();
+        menuSystem.ShowDefeatMenu();
     }
 }

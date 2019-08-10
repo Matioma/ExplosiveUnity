@@ -27,6 +27,7 @@ public class InGameUI : MonoBehaviour, IMenu
             loadScreenCanvas.gameObject.SetActive(false);
             victoryCanvas.gameObject.SetActive(false);
         }
+        Time.timeScale = 1;
     }
 
     /// <summary>
@@ -56,7 +57,6 @@ public class InGameUI : MonoBehaviour, IMenu
     {
         ShowLoadScreen();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
-        Time.timeScale = 1;
     }
     public void ShowVictoryScreen()
     {
