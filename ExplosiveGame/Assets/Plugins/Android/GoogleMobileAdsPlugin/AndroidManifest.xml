@@ -4,6 +4,6 @@
   <application>
     <uses-library android:required="false" android:name="org.apache.http.legacy" />
     <!-- Your AdMob App ID will look similar to this sample ID: ca-app-pub-3940256099942544~3347511713 -->
-    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3940256099942544~3347511713" />
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8213787603745093~9918192820" />
   </application>
 </manifest>

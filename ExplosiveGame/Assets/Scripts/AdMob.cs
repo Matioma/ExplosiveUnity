@@ -6,10 +6,10 @@ public class AdMob : MonoBehaviour
     public static AdMob reference;
 
     InterstitialAd interstitialAd;
-    string interstitialId= "ca-app-pub-3940256099942544/1033173712";
+    string interstitialId= "ca-app-pub-8213787603745093/3040959139";
 
     BannerView bannerAd;
-    string bannerAddID = "ca-app-pub-3940256099942544/6300978111";
+    string bannerAddID = "ca-app-pub-8213787603745093/6667899877";
 
     private void Awake()
     {
