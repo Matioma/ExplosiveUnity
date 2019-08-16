@@ -15489,6 +15489,11 @@ PrefabInstance:
       propertyPath: displayShotTextPro
       value: 
       objectReference: {fileID: 1206736649}
+    - target: {fileID: 1918322236713935068, guid: 5eaac6ef3f09c524d8d2e0bd8b1e6e42,
+        type: 3}
+      propertyPath: testPref
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eaac6ef3f09c524d8d2e0bd8b1e6e42, type: 3}
 --- !u!223 &2402178810424603238 stripped
@@ -15822,6 +15827,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LeaveGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505663099780510439, guid: 807088a8071c4e64f92bc4b225ff4717,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216354048101055062, guid: 807088a8071c4e64f92bc4b225ff4717,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0024414062
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 807088a8071c4e64f92bc4b225ff4717, type: 3}

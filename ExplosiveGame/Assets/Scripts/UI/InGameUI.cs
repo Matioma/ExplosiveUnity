@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class InGameUI : MonoBehaviour, IMenu
 {
+   
+
+
+
     public Canvas[] canvasesUsed;
 
 
@@ -21,6 +25,7 @@ public class InGameUI : MonoBehaviour, IMenu
     // Start is called before the first frame update
     private void Awake()
     {
+
         if (hideCanvasObject) {
             mainMenuCanvas.gameObject.SetActive(false);
             defeatCanvas.gameObject.SetActive(false);

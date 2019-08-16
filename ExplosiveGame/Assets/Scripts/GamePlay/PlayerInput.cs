@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.EventSystems;
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput instance;
+
     public float explosionForce;
 
     public GameObject explosion;
@@ -20,8 +22,17 @@ public class PlayerInput : MonoBehaviour
 
     private static bool paused;
 
+
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else {
+            Destroy(this);
+        }
+
         displayShotTextPro.GetComponent<TextMeshProUGUI>().text = $"Shots Left: {ShotLeft}";
     }
     void Start()
@@ -36,24 +47,29 @@ public class PlayerInput : MonoBehaviour
             paused = false;
         }
 
-        //if (Input.touches.Length > 0)
-        //{
-        //    Touch touch = Input.touches[0];
-        //    if (touch.phase == TouchPhase.Ended && ShotLeft>0 && !paused)
-        //    {
-        //        ScreenClicked(touch.position);
-        //    }
-        //}
-        if (Input.GetMouseButtonUp(0) && ShotLeft > 0 && !paused)
+#if UNITY_ANDROID
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && Time.timeScale != 0 && ShotLeft > 0)
         {
+            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
+            {
+                return;
+            }
+            ScreenClicked(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y));
+        }
+#endif
+#if UNITY_EDITOR
+        if (Time.timeScale != 0 && Input.GetMouseButtonUp(0) && ShotLeft > 0)
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
             ScreenClicked(Input.mousePosition);
         }
         if(ShotLeft <= 0)
         {
             Invoke("lostOutOfAmmo", 3);
         }
+#endif
     }
-
     /// <summary>
     /// Performs actions based on the click position
     /// </summary>
@@ -115,5 +131,14 @@ public class PlayerInput : MonoBehaviour
     {
         InGameUI menuSystem = FindObjectOfType<InGameUI>();
         menuSystem.ShowDefeatMenu();
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

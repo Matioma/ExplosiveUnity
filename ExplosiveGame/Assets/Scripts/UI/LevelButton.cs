@@ -11,7 +11,7 @@ public class LevelButton : MonoBehaviour
 
     public Sprite[] CompletedLevelImages;
 
-
+    public Sprite LevelNotAvailable;
 
     private bool levelCompleted = false;
     public bool LevelCompleted
@@ -34,12 +34,19 @@ public class LevelButton : MonoBehaviour
         OnLevelCompleted();
     }
 
+    private void Start()
+    {
+       
+    }
+
+
     /// <summary>
     /// Updates the sprites that represent the level being finished or not
     /// </summary>
     public void OnLevelCompleted()
     {
         var CompleteImage = this.transform.GetChild(1).GetComponent<Image>();
+        var DisabledImage = this.transform.GetChild(2).GetComponent<Image>();
         if (LevelCompleted)
         {
             CompleteImage.sprite = CompletedLevelImages[1];
@@ -52,9 +59,18 @@ public class LevelButton : MonoBehaviour
 
     public void LevelButtonClicked()
     {
-
         InGameUI test = FindObjectOfType(typeof(InGameUI)) as InGameUI;
         test.LoadLevelByName(LevelName);
         Time.timeScale = 1;
+    }
+    public void LevelNotInteractable()
+    {
+        if (!this.GetComponent<Button>().interactable)
+        {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = LevelTumb;
+        }
+        else {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = LevelNotAvailable;
+        }
     }
 }

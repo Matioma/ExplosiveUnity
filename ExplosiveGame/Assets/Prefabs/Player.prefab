@@ -148,6 +148,8 @@ MonoBehaviour:
   player: {fileID: 1918322236713935010}
   ShotLeft: 5
   displayShotTextPro: {fileID: 0}
+  testPref: {fileID: 7684027379163514759, guid: 4a21da64802a73449aeec95ce4a6b2c4,
+    type: 3}
 --- !u!114 &4042345950812185295
 MonoBehaviour:
   m_ObjectHideFlags: 0

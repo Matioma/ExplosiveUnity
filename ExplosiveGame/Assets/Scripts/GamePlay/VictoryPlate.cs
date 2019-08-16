@@ -15,6 +15,7 @@ public class VictoryPlate : MonoBehaviour
                 inGameUI.ShowVictoryScreen();
                 ProgressViewer.instance.LevelPassed(SceneManager.GetActiveScene().name);
                 ProgressViewer.instance.SaveData();
+                AdMob.reference.LevelsPassed++;
                 AdMob.reference.showInterstitalAd();
             }
             else {

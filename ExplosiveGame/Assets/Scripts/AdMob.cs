@@ -11,6 +11,9 @@ public class AdMob : MonoBehaviour
     BannerView bannerAd;
     string bannerAddID = "ca-app-pub-8213787603745093/6667899877";
 
+
+    public int LevelsPassed = 2;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -48,7 +51,7 @@ public class AdMob : MonoBehaviour
 
     public void showInterstitalAd()
     {
-        if (interstitialAd.IsLoaded())
+        if (interstitialAd.IsLoaded() && LevelsPassed%3==0)
         {
             interstitialAd.Show();
             Debug.Log("Yay");
