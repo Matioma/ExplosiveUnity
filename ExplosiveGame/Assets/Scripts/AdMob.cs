@@ -6,7 +6,7 @@ public class AdMob : MonoBehaviour
     public static AdMob reference;
 
     InterstitialAd interstitialAd;
-    string interstitialId= "ca-app-pub-8213787603745093/3040959139";
+    string interstitialId = "ca-app-pub-8213787603745093/3040959139";
 
     BannerView bannerAd;
     string bannerAddID = "ca-app-pub-8213787603745093/6667899877";
@@ -42,6 +42,7 @@ public class AdMob : MonoBehaviour
     public void HideBanner()
     {
         bannerAd.Hide();
+
     }
 
     public void ShowBanner()

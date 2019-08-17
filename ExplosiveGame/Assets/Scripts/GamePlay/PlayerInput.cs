@@ -64,11 +64,12 @@ public class PlayerInput : MonoBehaviour
                 return;
             ScreenClicked(Input.mousePosition);
         }
-        if(ShotLeft <= 0)
+#endif
+        if (ShotLeft <= 0)
         {
             Invoke("lostOutOfAmmo", 3);
         }
-#endif
+
     }
     /// <summary>
     /// Performs actions based on the click position
