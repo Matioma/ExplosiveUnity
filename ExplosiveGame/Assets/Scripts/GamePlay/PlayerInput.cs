@@ -29,7 +29,8 @@ public class PlayerInput : MonoBehaviour
         {
             instance = this;
         }
-        else {
+        else
+        {
             Destroy(this);
         }
 
@@ -41,9 +42,12 @@ public class PlayerInput : MonoBehaviour
     }
     void Update()
     {
-        if (Time.timeScale == 0){
+        if (Time.timeScale == 0)
+        {
             paused = true;
-        } else {
+        }
+        else
+        {
             paused = false;
         }
 
@@ -98,11 +102,13 @@ public class PlayerInput : MonoBehaviour
             else if (hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Bagage"))
             {
             }
-            else {
+            else
+            {
                 CreateExplosion(mousePos);
             }
         }
-        else {
+        else
+        {
             CreateExplosion(mousePos);
         }
 
@@ -126,7 +132,7 @@ public class PlayerInput : MonoBehaviour
     {
         ShotLeft--;
         displayShotTextPro.GetComponent<TextMeshProUGUI>().text = $"Shots Left: {ShotLeft}";
-    } 
+    }
 
     public void lostOutOfAmmo()
     {
